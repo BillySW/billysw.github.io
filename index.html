@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BillySW</title>
+    <style>
+        /* Сброс отступов и настройка шрифта */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            overflow: hidden; /* Убираем скроллинг */
+            background-color: #f8f9fa;
+            color: #008B8B;
+        }
+
+        /* Контейнер-колонка для трёх секций */
+        .container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Общий стиль для всех трёх колонок */
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            overflow-y: auto; /* На случай, если контента будет много, но скролл не сломается */
+        }
+
+        /* Левая колонка (Ресурсы) */
+        .left {
+            background-color: #000000;
+        }
+
+        /* Центральная колонка (Информация) */
+        .center {
+            background-color: #ffffff;
+            border-left: 2px solid #dee2e6;
+            border-right: 2px solid #dee2e6;
+        }
+
+        /* Правая колонка (Контакты) */
+        .right {
+            background-color: #000000;
+        }
+
+        /* Стили для изображения в центре */
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #008B8B;
+            margin-bottom: 20px;
+        }
+
+        .center h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .center p {
+            font-size: 1.1rem;
+            max-width: 300px;
+            color: #008B8B;
+        }
+
+        /* Стили для иконок (здесь нужно будет подставить свои иконки) */
+        .icon-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #008B8B;
+            transition: transform 0.2s;
+        }
+
+        .icon-item:hover {
+            transform: scale(1.1);
+        }
+
+        /* Заглушка для иконок. Замените на свои изображения или иконки из библиотек (Font Awesome и т.п.) */
+        .icon-placeholder {
+            width: 60px;
+            height: 60px;
+            background-color: #008B8B;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: 100vh;
+                overflow-y: auto; /* Включаем скролл для мобильных, чтобы всё поместилось */
+            }
+            .column {
+                flex: none;
+                height: auto;
+                min-height: 33.33vh;
+                padding: 15px;
+            }
+            .center {
+                border-left: none;
+                border-right: none;
+                border-top: 2px solid #dee2e6;
+                border-bottom: 2px solid #dee2e6;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ЛЕВАЯ КОЛОНКА: Иконки ресурсов -->
+        <div class="column left">
+            <div class="icon-grid">
+                <a href="http://poshlido.moy.su/" class="icon-item">
+                    <div class="icon-placeholder"><img src='src/poshlidomoy.png' weight=60px height=60px></div>
+                    <span>Пошли домой!</span>
+                </a>
+                <a href="https://max.ru/join/AF3KjwUds3bv2keybPo21SzC8UCkAXCx53Vz3zioFwI" class="icon-item">
+                    <div class="icon-placeholder"><img src='src/max.png' weight=60px height=60px></div>
+                    <span>Канал</span>
+                </a>
+                <a href="https://max.ru/join/ItiTZxLQ2al7qtMLIkDGRsZ58MxrW1mp4Ebf5IR1tic" class="icon-item">
+                    <div class="icon-placeholder"><img src='src/max.png' weight=60px height=60px></div>
+                    <span>Live Чат</span>
+                </a>
+                <a href="#" class="icon-item">
+                    <div class="icon-placeholder">Паблик</div>
+                    <span>VK</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- ЦЕНТРАЛЬНАЯ КОЛОНКА: Информация -->
+        <div class="column center">
+            <!-- Замените src на путь к вашей фотографии -->
+            <img src="src/avatar.png" class="profile-img">
+            <h1>BillySW</h1>
+            <p>Собирательный образ из музыки, стихов, медиаконтента и инженерии. Вы находитесь на стартовой странице всех моих проектов и ресурсов. Посмотрите налево. Здесь собраны и иногда дополняются различные ресурсы, которые я веду. ПошлиДомой! - оболочка для моего облака. Мой основной канал в МАКСе. ЛайфЧат в максе. Страницы моих групп в ВК. Исполнитель на BandCamp и другое. Посмотрите направо. Это контактная информация. Это мои соцсети и мессенджеры, я на связи.</p>
+        </div>
+
+        <!-- ПРАВАЯ КОЛОНКА: Иконки контактов -->
+        <div class="column right">
+            <h2>Контакты</h2>
+            <div class="icon-grid">
+                <a href="#" class="icon-item">
+                    <div class="icon-placeholder">📧</div>
+                    <span>Email</span>
+                </a>
+                <a href="#" class="icon-item">
+                    <div class="icon-placeholder">📱</div>
+                    <span>Telegram</span>
+                </a>
+                <a href="#" class="icon-item">
+                    <div class="icon-placeholder">🐦</div>
+                    <span>Twitter</span>
+                </a>
+                <a href="#" class="icon-item">
+                    <div class="icon-placeholder">💼</div>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
